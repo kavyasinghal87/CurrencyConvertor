@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0f0c29;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-1: #00f2fe;
+  --accent-2: #4facfe;
+  --glow: 0 0 20px rgba(79, 172, 254, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  overflow: hidden; /* Hide scrollbars from moving blobs */
+  color: var(--text-main);
+}
+
+/* Ambient Background Animation */
+.background-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float 10s infinite alternate;
+}
+
+.shape-1 {
+  background: var(--accent-1);
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  background: #f093fb;
+  width: 350px;
+  height: 350px;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: -2s;
+}
+
+.shape-3 {
+  background: var(--accent-2);
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  left: 40%;
+  opacity: 0.4;
+  animation: float 7s infinite alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 50px) scale(1.1); }
+}
+
+/* Glassmorphism Card */
+.container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  z-index: 10;
+}
+
+.container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(to right, #fff, #b3b3b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+form {
+  margin: 0;
+}
+
+.amount {
+  margin-bottom: 2rem;
+}
+
+.amount p, .from p, .to p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+form input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  outline: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: var(--accent-1);
+  box-shadow: var(--glow);
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  gap: 1rem;
+}
+
+.dropdown .from, .dropdown .to {
+  flex: 1;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 3.5rem;
+}
+
+.select-container:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.select-container img {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  margin-right: 0.8rem;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.select-container select {
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  color: #fff;
+  appearance: none;
+}
+
+/* Custom styling for select dropdown options (tricky in pure CSS but adding base styles) */
+select option {
+  background-color: #1a1a2e;
+  color: #fff;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-1);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 1px solid var(--glass-border);
+}
+
+.arrow:hover {
+  transform: rotate(180deg) scale(1.1);
+  background: var(--accent-1);
+  color: #000;
+  box-shadow: var(--glow);
+}
+
+.msg {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow line animation */
+.msg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+form button {
+  width: 100%;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  color: #000; /* Contrast text for bright button */
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-1) 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+form button:hover::before {
+  opacity: 1;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(79, 172, 254, 0.6);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .arrow:hover {
+    transform: rotate(270deg);
+  }
+  
+  .container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
