@@ -1,5 +1,7 @@
 # Currency Converter
 
+> **Note:** This was my first small project as I started my web development journey.
+
 A simple and efficient currency converter web application developed using HTML, CSS, and JavaScript.
 
 ## 🚀 Features
